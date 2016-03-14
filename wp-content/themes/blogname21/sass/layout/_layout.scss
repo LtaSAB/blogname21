@@ -1,0 +1,151 @@
+@import '../utils/_variables',
+'../utils/_mixins';
+@import url(https://fonts.googleapis.com/css?family=Oswald:400,300,700);
+
+/* ie hack
+don't remove that style*/
+.m-page {
+  display: block;
+}
+
+.container-fluid {
+  min-width: $min-width;
+  max-width: $max-width;
+}
+
+.container-fluid:before, .container-fluid:after,
+.clearfix:before,
+.clearfix:after {
+  content: '';
+  display: table;
+}
+
+.container-fluid:after,
+.clearfix:after {
+  clear: both;
+}
+
+* {
+  @include prefix(box-sizing, border-box, webkit moz);
+}
+
+.wrapper {
+  overflow: hidden;
+  min-width: $min-width;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+html {
+  font-size: $main-font-size;
+  margin-top: 0 !important;
+}
+
+body {
+  font-family: $font;
+  font-size: $main-font-size;
+  color: $news-color;
+  margin: 0;
+  a {
+    text-decoration: none;
+    color: $main-link-color;
+    outline: none;
+    &:hover {
+      text-decoration: none;
+      transition: $link-transition;
+      outline: none;
+      color: $link-hover-color;
+    }
+    &:active {
+      text-decoration: none;
+    }
+    &:focus {
+      text-decoration: none;
+    }
+  }
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.title-centered {
+  text-align: center;
+}
+
+li.current_page_item {
+  a {
+  }
+}
+
+h2 {
+  font-size: $h2-post-size;
+  font-family: $font;
+  a {
+  }
+}
+
+.pagination {
+  display: block;
+  text-align: right;
+  margin: 20px auto 40px;
+  .nav-links {
+    .page-numbers {
+      display: inline-block;
+      min-width: 25px;
+      margin-left: 3px;
+      padding: 4px 10px;
+      text-align: center;
+      font-size: $page-number-size;
+      background-color: rgba(226, 226, 226, 0.85);
+      &.current {
+        background-color: rgba(34, 34, 34, 0.85);
+      }
+
+    }
+    a.page-numbers{
+      &:hover {
+        background-color: darkorange ;
+        color: $main-link-color;
+      }
+    }
+  }
+}
+
+.aligncenter {
+  clear: both;
+  display: block;
+  margin: 45px auto;
+}
+
+label {
+  margin: 0;
+}
+
+.latest-posts-title {
+  position: relative;
+  display: block;
+  background-color: #222;
+  padding: 10px;
+  font-family: $font;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: white;
+  font-size: (16/14)*1rem;
+  letter-spacing: 1px;
+  margin-bottom: 30px;
+  &:after {
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 35px solid #222;
+    position: absolute;
+    left: 20px;
+    bottom: -20px;
+    transform: skewX(45deg);
+  }
+}

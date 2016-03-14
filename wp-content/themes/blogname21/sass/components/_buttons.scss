@@ -1,0 +1,21 @@
+@import '../utils/_variables';
+.read-more {
+  font-weight: $read-more-weight;
+  color: $read-more-color;
+  text-transform: uppercase;
+  background-color: #ffd500;
+  display: inline-block;
+  padding: 7px 10px;
+  font-family: $font;
+
+  &:after {
+    content: '\f054';
+    font-family: FontAwesome, sans-serif;
+    margin-left: 10px;
+    padding: 4px 7px;
+    display: inline-block;
+    font-size: (10/14)*1rem;
+    vertical-align: top;
+    background: url("../img/bg-btn-read-more.png") no-repeat center;
+  }
+}

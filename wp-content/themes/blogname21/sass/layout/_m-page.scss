@@ -1,0 +1,49 @@
+.main-posts {
+  padding: 40px 0;
+  article {
+    padding: 40px 0 20px ;
+    border-bottom:5px solid  #e7e7e7;
+    &:first-of-type {
+      padding-top: 10px;
+    }
+    .entry-meta {
+      .posted-date, .comments-count, .category-post {
+        display: inline-block;
+        background-color: #ecebeb;
+        padding: 5px 10px;
+        font-size: (12/14)*1rem;
+        font-weight: 700;
+        color: black;
+        &:before {
+          font-family: FontAwesome, sans-serif;
+          color: #a09e9e;
+          vertical-align: bottom;
+          padding-right: 5px;
+        }
+      }
+      .comments-count {
+        &:before {
+          content: '\f075';
+        }
+      }
+      .category-post {
+        &:before {
+          content: '\f07c';
+        }
+      }
+      .posted-date {
+        .inner-block {
+          display: inline-block;
+        }
+        &:before {
+          content: '\f073';
+        }
+      }
+
+    }
+    .entry-content {
+      font-family: $secondary-font;
+      padding: 30px 0 10px;
+    }
+  }
+}
