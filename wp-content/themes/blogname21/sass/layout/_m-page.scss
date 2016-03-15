@@ -1,8 +1,8 @@
-.main-posts {
+.main-posts , .single-post-section{
   padding: 40px 0;
   article {
-    padding: 40px 0 20px ;
-    border-bottom:5px solid  #e7e7e7;
+    padding: 40px 0 20px;
+    border-bottom: 5px solid #e7e7e7;
     &:first-of-type {
       padding-top: 10px;
     }
@@ -45,5 +45,94 @@
       font-family: $secondary-font;
       padding: 30px 0 10px;
     }
+  }
+}
+
+//contact page
+.contact-page {
+  font-family: $secondary-font;
+  padding: 25px 0;
+  .feautured-image {
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+  article {
+    p {
+      color: #878585;
+    }
+  }
+  h1, h2 {
+    font-family: $font;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  h1 {
+    font-size: (36/14)*1rem;
+    color: #272726;
+  }
+  h2 {
+    color: $title-color;
+    font-size: (16/14)*1rem;
+    margin-bottom: 20px;
+  }
+
+  h3 {
+    font-weight: 700;
+    color: #040303;
+    font-size: $main-font-size;
+  }
+
+}
+
+///gallery
+.gallery-posts {
+  margin: 20px 0 80px;
+  padding: 7px;
+  background-color: white;
+  .page-title {
+    margin: 0;
+  }
+  .latest-posts-title {
+    margin-bottom: 40px;
+  }
+  article {
+    margin-top: 10px;
+    .preview-wrapper {
+      position: relative;
+      max-width: 400px;
+      margin: 0 auto;
+      img{
+        width: 100%;
+        height: auto;
+      }
+      .entry-title {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 999;
+        background-color: #ffd500;
+        font-size: (16/14)*1rem;
+        font-weight: 300;
+        text-transform: uppercase;
+        padding: 10px 15px;
+        margin: 0;
+      }
+      .the-excerpt-gallery {
+        display: none;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        padding: 0 10px;
+        color: white;
+      }
+    }
+  }
+}
+//single post
+.single-post-section {
+  h1 {
+    color: black;
   }
 }

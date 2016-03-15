@@ -123,8 +123,11 @@ h2 {
 label {
   margin: 0;
 }
+input, textarea {
+  outline: none;
+}
 
-.latest-posts-title {
+.latest-posts-title, .widget_recent_entries h2 {
   position: relative;
   display: block;
   background-color: #222;
@@ -142,10 +145,19 @@ label {
     height: 0;
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
-    border-top: 35px solid #222;
+    border-top: 30px solid #222;
     position: absolute;
-    left: 20px;
-    bottom: -20px;
+    left: 40px;
+    bottom: -30px;
     transform: skewX(45deg);
+  }
+}
+.site-content {
+  background-image: linear-gradient(to bottom, #d1d1cf 0 , white 300px);
+}
+.category {
+  .pagination {
+    clear: both;
+    padding-top: 1px;
   }
 }

@@ -4,6 +4,10 @@
             $(".nav-menu").slideToggle("slow", function () {
             });
         });
-
     });
 })(jQuery);
+$(window).load(function() {
+    $('.flexslider').flexslider({
+        animation: "slide"
+    });
+});

@@ -1,5 +1,5 @@
 @import '../utils/_variables';
-.read-more {
+.read-more, .subscribe, .wpcf7 .subscribe{
   font-weight: $read-more-weight;
   color: $read-more-color;
   text-transform: uppercase;
@@ -17,5 +17,11 @@
     font-size: (10/14)*1rem;
     vertical-align: top;
     background: url("../img/bg-btn-read-more.png") no-repeat center;
+  }
+}
+.subscribe {
+  border: none;
+  &:hover {
+    color: $link-hover-color;
   }
 }

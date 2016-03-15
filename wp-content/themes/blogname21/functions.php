@@ -107,6 +107,15 @@ function blogname21_widgets_init() {
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
+	register_sidebar( array(
+		'name'          => esc_html__( 'Sidebar-alternative', 'blogname21' ),
+		'id'            => 'sidebar-contact',
+		'description'   => '',
+		'before_widget' => '<section id="%1$s" class="widget %2$s widget-alternative">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
 }
 add_action( 'widgets_init', 'blogname21_widgets_init' );
 
@@ -115,10 +124,12 @@ add_action( 'widgets_init', 'blogname21_widgets_init' );
  */
 function theme_classic_scripts() {
 	wp_enqueue_style( 'bootstrap.min', get_template_directory_uri() . '/css/bootstrap.min.css' );
+	wp_enqueue_style( 'flexslider', get_template_directory_uri() . '/css/flexslider.css' );
 	wp_enqueue_style( 'main', get_template_directory_uri() . '/css/main.css' );
-	wp_enqueue_script( 'script', get_template_directory_uri() . '/js/script.js', array( 'jquery' ), 1.1, true );
-	wp_enqueue_script( 'jquery-1.12.0.min', '/js/jquery-1.12.0.min.js', array( 'jquery' ), 1.1, true );
 
+	wp_enqueue_script( 'jquery-1.12.0.min', get_template_directory_uri() . '/js/jquery-1.12.0.min.js', array( 'jquery' ), 1.1, true );
+	wp_enqueue_script( 'flex-script', get_template_directory_uri() .  '/js/jquery.flexslider-min.js', array( 'jquery' ), false, true );
+	wp_enqueue_script( 'script', get_template_directory_uri() . '/js/script.js', array( 'jquery' ), 1.1, true );
 	wp_enqueue_script( 'theme_classic-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
 	wp_enqueue_script( 'theme_classic-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
@@ -244,6 +255,45 @@ function example_customizer( $wp_customize ) {
 			'type' => 'url',
 		)
 	);
+
+	//contact info
+
+	$wp_customize->add_section(
+		'contact_section',
+		array(
+			'title' => 'Контактные данные',
+			'description' => 'Это секция настроек.',
+			'priority' => 50,
+		)
+	);
+	$wp_customize->add_setting(
+		'phone_number',
+		array(
+			'default' => '',
+		)
+	);
+	$wp_customize->add_control(
+		'phone_number',
+		array(
+			'label' => 'Номер телефона',
+			'section' => 'contact_section',
+			'type' => 'text',
+		)
+	);
+	$wp_customize->add_setting(
+		'e-mail',
+		array(
+			'default' => '',
+		)
+	);
+	$wp_customize->add_control(
+		'e-mail',
+		array(
+			'label' => 'E-mail',
+			'section' => 'contact_section',
+			'type' => 'text',
+		)
+	);
 }
 add_action( 'customize_register', 'example_customizer' );
 
@@ -259,3 +309,45 @@ the_posts_pagination( $args = array(
 	'next_text' => __( ' ' ),
 	'screen_reader_text' => __( ' ' ),
 ));
+
+//php in widget
+function mayak_widget_php($widget_content) {
+	if (strpos($widget_content, '<' . '?') !== false) {
+		ob_start();
+		eval('?' . '>' . $widget_content);
+		$widget_content = ob_get_contents();
+		ob_end_clean();
+	}
+	return $widget_content;
+}
+add_filter('widget_text', 'mayak_widget_php', 99);
+
+//register slider
+add_action( 'init', 'register_slider' );
+function register_slider() {
+	$labels = array(
+		'name'               => __('Slider'),
+		'singular_name'      => __('Слайд'),
+		'add_new'            => __('Добавить слайд'),
+		'add_new_item'       => __('Добавить новый слайд'),
+		'edit_item'          => __('Редактировать слайд '),
+		'new_item'           => __('Новый слайд'),
+		'all_items'          => __('Все слайды'),
+		'view_item'          => __( 'Просмотр слайдов'),
+		'search_items'       => __('Искать слайды'),
+		'not_found'          => __('Слайдов не найдено.'),
+		'not_found_in_trash' => __('В корзине нет слайдов.'),
+		'menu_name'          => __('Слайдер')
+	);
+	$args   = array(
+		'labels'        => $labels,
+		'public'        => true, // благодаря этому некоторые параметры можно пропустить
+		'menu_icon'     => 'dashicons-images-alt',
+		'menu_position' => 5,
+		'has_archive'   => true,
+		'supports'      => array( 'title', 'editor', 'excerpt', 'thumbnail', 'comments', 'categories', 'custom-fields' ),
+		'taxonomies'    => array( 'post_tag', 'category' ),
+
+	);
+	register_post_type( 'slider', $args );
+}
