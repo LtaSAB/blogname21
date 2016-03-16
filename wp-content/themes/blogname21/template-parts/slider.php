@@ -2,7 +2,7 @@
 	<ul class="slides">
 		<?php $args = array(
 			'post_type' => 'slider',
-			'posts_per-page'=> 6
+			'posts_per_page'=> 6
 		);
 		$the_query  = new WP_Query( $args );
 		if ( $the_query->have_posts() ) :
