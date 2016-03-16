@@ -151,24 +151,6 @@ input, textarea {
       font-weight: bold;
       line-height: 45px;
       font-size: 1.5rem; }
-    .site-header .main-navigation .menu-main-container {
-      width: 100%;
-      position: absolute;
-      top: 80px;
-      left: 0;
-      z-index: 9999; }
-      .site-header .main-navigation .menu-main-container .nav-menu {
-        display: none;
-        background-color: #ffd500; }
-        .site-header .main-navigation .menu-main-container .nav-menu li {
-          border-bottom: 1px solid #333; }
-          .site-header .main-navigation .menu-main-container .nav-menu li a {
-            display: block;
-            width: 100%;
-            height: 100%;
-            text-transform: uppercase;
-            text-align: center;
-            padding: 15px; }
   .site-header .search form {
     padding: 20px 0 10px; }
     .site-header .search form .search-inner {
@@ -397,6 +379,26 @@ input, textarea {
       content: '\f0e0'; }
   .widget-area .widget-alternative .other-text {
     margin: 10px 0 20px; }
+
+@media screen and (min-width: 320px) and (max-width: 991px) {
+  .site-header .main-navigation .menu-main-container {
+    width: 100%;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    z-index: 9999; }
+    .site-header .main-navigation .menu-main-container .nav-menu {
+      display: none;
+      background-color: #ffd500; }
+      .site-header .main-navigation .menu-main-container .nav-menu li {
+        border-bottom: 1px solid #333; }
+        .site-header .main-navigation .menu-main-container .nav-menu li a {
+          display: block;
+          width: 100%;
+          height: 100%;
+          text-transform: uppercase;
+          text-align: center;
+          padding: 15px; } }
 
 @media screen and (min-width: 768px) {
   .site-footer .site-info {

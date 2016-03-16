@@ -12,7 +12,7 @@
 						<?php the_post_thumbnail(); ?>
 					</div>
 					<div class="slider-description">
-						<?php the_title( '<h3 class="slider-title"><a href="' . esc_url( get_permalink('slider') ) . '" rel="bookmark">', '</a></h3>'); ?>
+						<h3><a href="<?php  the_permalink(); ?>"><?php the_title();?> </a></h3>
 						<div class="slider-excerpt">
 							<?php the_excerpt(); ?>
 						</div>

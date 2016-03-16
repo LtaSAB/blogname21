@@ -1,5 +1,34 @@
 @import '../utils/_variables';
 
+@media screen and (min-width: $min-width) and (max-width: $md-width - 1) {
+  .site-header {
+    .main-navigation {
+      .menu-main-container {
+        width: 100%;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        z-index: 9999;
+        .nav-menu {
+          display: none;
+          background-color: #ffd500;
+          li {
+            border-bottom: 1px solid #333;
+            a {
+              display: block;
+              width: 100%;
+              height: 100%;
+              text-transform: uppercase;
+              text-align: center;
+              padding: 15px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 @media screen and (min-width: $sm-width) {
   .site-footer {
     .site-info {
@@ -27,7 +56,7 @@
             height: 100%;
             top: 0;
             left: 0;
-            background-color: rgba(34,34,34,0.85);
+            background-color: rgba(34, 34, 34, 0.85);
           }
           .the-excerpt-gallery {
             display: block;
